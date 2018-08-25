@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
   end
-  
+
   def show
     @category = Category.find(params[:id])
   end
@@ -17,13 +17,30 @@ class CategoriesController < ApplicationController
     if @category.save
       flash[:success] = "#{@category.title} added!"
       redirect_to category_path(@category)
-    else 
+    else
       flash[:notice] = "Title has already been taken!"
       redirect_to new_category_path
     end
   end
-  
-  
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+    if @category.save
+      flash[:success] = "Category updated!"
+      redirect_to category_path(@category)
+    else
+      flash[:notice] = "Title already exists!"
+      redirect_to edit_category_path
+    end
+
+  end
+
+
 
   private
     def category_params

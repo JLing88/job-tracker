@@ -2,7 +2,8 @@
 <h3><%= link_to "Create a New Category", new_category_path, class: "new-category" %></h3>
 
 <% @categories.each do |category| %>
-  <ul>
+  <ul id="category-<%= category.id %>">
     <li><%= link_to category.title, category_path(category) %> </li>
+    <li><%= link_to "Edit", edit_category_path(category)%> </li>
   </ul>
 <% end %>
