@@ -15,6 +15,7 @@ describe 'user can create a new category' do
         expect(page).to have_content("New Title added!")
         expect(current_path).to eq(categories_path)
         expect(page).to have_content("New Title")
+
       end
     end
   end
