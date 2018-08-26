@@ -3,6 +3,6 @@ All Jobs
 <ul>   Title           Company          City             Level of Interest
 <% @jobs.each do |job| %>
   <ul>
-    <li id="job-<%= job.id %>"> <%= job.title %> at <%= job.company.name %> <%= job.city %> <%= job.level_of_interest %><%= link_to "Edit", edit_job_path(job) %></li>
+    <li id="job-<%= job.id %>"> <%= job.title %> at <%= job.company.name %> <%= job.city %> <%= job.level_of_interest %><%= link_to "Edit", edit_job_path(job) %><%= link_to "Delete", job_path(job), method: :delete %></li>
   </ul>
 <% end %>
