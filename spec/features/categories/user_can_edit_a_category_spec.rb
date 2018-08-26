@@ -7,15 +7,13 @@ describe 'user can edit a category' do
         category_1 = Category.create!(title: "Software")
 
         visit categories_path
-
         click_link "Edit"
 
         expect(current_path).to eq(edit_category_path(category_1))
 
         fill_in 'category[title]', with: "Edited Category Title"
-
         click_on "Update"
-        save_and_open_page
+  
         expect(page).to have_content("Edited Category Title")
         expect(page).to_not have_content("Software")
       end
@@ -26,13 +24,12 @@ describe 'user can edit a category' do
         visit categories_path
 
         within("#category-#{category_1.id}") do
-          click_link "Edit"
+        click_link "Edit"
         end
 
         expect(current_path).to eq(edit_category_path(category_1))
 
         fill_in 'category[title]', with: "Management"
-
         click_on "Update"
 
         expect(page).to have_content("Title already exists!")
