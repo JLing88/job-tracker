@@ -34,7 +34,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    # implement on your own!
+    Job.destroy(params[:id])
+    redirect_to jobs_path
   end
 
   private
