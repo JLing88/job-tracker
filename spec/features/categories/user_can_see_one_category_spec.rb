@@ -31,4 +31,16 @@ describe 'user can see one category' do
 
     end
   end
+
+  describe 'user can create job from category show page' do
+    it 'should link to create job' do
+      category = Category.create!(title: "Software")
+
+      visit category_path(category)
+
+      click_link "Add New Job"
+
+      expect(current_path).to eq(new_job_path)
+    end
+  end
 end
