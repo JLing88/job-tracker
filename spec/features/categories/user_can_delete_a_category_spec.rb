@@ -10,6 +10,7 @@ describe 'user can delete a category' do
     end
     
     expect(page).to_not have_content(category_1.title)
+    expect(page).to have_content("Category deleted!")
     expect(page).to have_content(category_2.title)
   end 
 end 

@@ -5,6 +5,6 @@
   <ul id="category-<%= category.id %>">
     <li><%= link_to category.title, category_path(category) %> </li>
     <li><%= link_to "Edit", edit_category_path(category) %> </li>
-    <li><%= link_to "Delete", category_path(category), method: :delete, data: {confirm: "Really delete the article?"} %></li>
+    <li><%= link_to "Delete", category_path(category), method: :delete %></li>
   </ul>
 <% end %>
