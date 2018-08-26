@@ -37,9 +37,14 @@ class CategoriesController < ApplicationController
       flash[:notice] = "Title already exists!"
       redirect_to edit_category_path
     end
-
   end
 
+  def destroy
+    # @category = Category.find(params[:id])
+    Category.destroy(params[:id])
+    redirect_to categories_path
+    flash.notice = "Category deleted!"
+  end 
 
 
   private
