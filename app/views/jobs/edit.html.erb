@@ -1,9 +1,15 @@
 <h1>Edit Job</h1>
 
-<%= form_for(
-  @job) do |f| %>
+<%= form_for @job do |f| %>
+
+  <%= f.label :category_id %>
+  <%= f.collection_select(:category_id, Category.all, :id, :title) %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
+
+  <%= f.label :company_id %>
+  <%= f.collection_select(:company_id, Company.all, :id, :name) %>
 
   <%= f.label :description %>
   <%= f.text_field :description %>
