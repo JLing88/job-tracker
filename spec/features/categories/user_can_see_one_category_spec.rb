@@ -43,4 +43,48 @@ describe 'user can see one category' do
       expect(current_path).to eq(new_job_path)
     end
   end
+
+  describe 'user can delete job from category show page' do
+    it 'should delete the job' do
+      category = Category.create!(title: "Software")
+      company = Company.create!(name: "ESPN")
+      job_1 = company.jobs.create!(title: "Developer", level_of_interest: 2, city: "Denver", category_id: category.id)
+      job_2 = company.jobs.create!(title: "Technician", level_of_interest: 3, city: "Boulder", category_id: category.id)
+
+      visit category_path(category)
+      within("#job-#{job_1.id}") do
+        click_link "Delete"
+      end
+
+      expect(page).to_not have_content(job_1.title)
+      expect(page).to have_content(job_2.title)
+    end
+  end
+
+  describe 'user can edit job from category show page' do
+    it 'should edit the job' do
+      category = Category.create!(title: "Software")
+      company = Company.create!(name: "ESPN")
+      job_1 = company.jobs.create!(title: "Developer", level_of_interest: 2, city: "Denver", category_id: category.id)
+
+      visit category_path(category)
+      within("#job-#{job_1.id}") do
+        click_link "Edit"
+      end
+      expect(current_path).to eq(edit_job_path(job_1))
+
+      fill_in "job[title]", with: "Technician"
+      fill_in "job[level_of_interest]", with: "4"
+      fill_in "job[city]", with: "Los Angeles"
+      fill_in "job[description]", with: "d;alksjd;fasdjf;adjfa;djk"
+      click_on "Update"
+
+      expect(page).to have_content("Technician")
+      expect(page).to have_content("Los Angeles")
+      expect(page).to have_content("4")
+      expect(page).to_not have_content("Developer")
+      expect(page).to_not have_content("Denver")
+      expect(page).to_not have_content("2")
+    end
+  end
 end

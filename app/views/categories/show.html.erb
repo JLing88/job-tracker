@@ -4,7 +4,11 @@
 
 <% @category.jobs.each do |job| %>
 <ul>
-  <li> <%= job.title %> <%= job.company.name %> <%= job.city %> <%= job.level_of_interest %></li>
+  <li id="job-<%= job.id %>">
+    <%= job.title %> <%= job.company.name %> <%= job.city %>
+    <%= job.level_of_interest %> <%=  link_to "Edit", edit_job_path(job) %>
+    <%= link_to "Delete", job_path(job), method: :delete %>
+  </li>
 </ul>
 
 <% end %>
