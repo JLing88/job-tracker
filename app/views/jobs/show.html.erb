@@ -1,13 +1,26 @@
-Title: <%= @job.title %>
+<h1><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h1>
+<br>
+
+<%= link_to "See Other Development Jobs", category_path(@job.category) %>
+<br>
+
+Location: <%= @job.city %>
+<br>
+
+Interest: <%= @job.level_of_interest %>
 <br>
 
 Description: <%= @job.description %>
 <br>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
+<h3>Leave your comment here: </h3> 
+ <%= form_for [@comment] do |f| %>
+   <p>
+     <%= f.label :content %><br/>
+     <%= f.text_area :content %>
+   </p>
+   <p>
+     <%= f.submit 'Submit' %>
+   </p>
+ <% end %>
 
-City: <%= @job.city %>
-<br>
-
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
