@@ -31,4 +31,20 @@ describe 'user can edit a job' do
       end
     end
   end
+  
+  describe "user can add a new category" do
+    describe "they link from the edit page" do
+      it "should direct to the create new category form" do 
+        company = Company.create!(name: "ESPN")
+        category = Category.create!(title: "Software")
+        job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
+        
+        visit edit_job_path(job)
+        click_link "Add New Category"
+        
+        expect(current_path).to eq(new_category_path)
+      end 
+    end 
+  end 
+      
 end

@@ -21,4 +21,19 @@ describe "User creates a new job" do
     expect(page).to have_content("80")
     expect(page).to have_content("Denver")
   end
+  
+  describe "user can add a new category" do 
+    describe "they link from the create a job page" do 
+      it "should link to the create a category form" do
+        company = Company.create!(name: "ESPN")
+        category = Category.create!(title: "Software")
+        
+        visit new_job_path
+        click_link "Add New Category"
+        
+        expect(current_path).to eq(new_category_path)
+        
+      end 
+    end
+  end 
 end
