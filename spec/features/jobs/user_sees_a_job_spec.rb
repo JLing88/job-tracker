@@ -8,9 +8,10 @@ describe "User sees a specific job" do
 
     visit job_path(job)
 
-    expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
-    expect(page).to have_content("70")
+    expect(page).to have_content(job.company.name)
+    expect(page).to have_content(job.title)
+    expect(page).to have_content(job.level_of_interest)
+    expect(page).to have_content(job.city)
   end
   
   describe "User can enter a comment for a job" do 
@@ -18,11 +19,15 @@ describe "User sees a specific job" do
       company = Company.create!(name: "ESPN")
       category = Category.create!(title: "Software")
       job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
+      comment_content = "This is a comment"
+      
       visit job_path(job)
-      fill_in "comment[:content]", with: "This is a comment"
+      
+      fill_in "comment[content]", with: comment_content
       click_on "Submit"
-      expect(current_parth).to eq(job_path(job))
-      expect(page).to have_content("This is a comment")
+      
+      expect(current_path).to eq(job_path(job))
+      expect(page).to have_content(comment_content)
       save_and_open_page
     end
   end      

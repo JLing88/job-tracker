@@ -9,8 +9,7 @@ describe 'user can see all categories' do
 
       visit categories_path
 
-      expect(current_path).to eq('/categories')
-
+      expect(current_path).to eq(categories_path)
       expect(page).to have_content(category_1.title)
       expect(page).to have_content(category_2.title)
       expect(page).to have_content(category_3.title)
