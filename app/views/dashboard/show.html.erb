@@ -1,0 +1,10 @@
+<h1>Job Tracker</h1>
+
+<div>
+  <h3>Jobs by Interest</h3>
+  <% @jobs_by_interest.each do |key, value| %>
+  <ul>
+    <li>  <%= key %> <%= value %> Job</li>
+  </ul>
+  <% end %>
+</div>

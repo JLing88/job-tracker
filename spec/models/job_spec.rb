@@ -38,4 +38,18 @@ describe Job do
     it {should belong_to(:category)}
     it {should have_many(:comments)}
   end
+
+  describe ".jobs_by_interest" do
+    it 'should return the number of jobs for each interest level' do
+      company = Company.create!(name: "ESPN")
+      category = Category.create!(title: "Software")
+      job_1 = company.jobs.create!(title: "Developer", level_of_interest: 1, city: "Denver", category_id: category.id)
+      job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 1, city: "New York City", category_id: category.id)
+      job_3 = company.jobs.create!(title: "Developer", level_of_interest: 1, city: "Denver", category_id: category.id)
+      job_4 = company.jobs.create!(title: "QA Analyst", level_of_interest: 2, city: "New York City", category_id: category.id)
+      job_5 = company.jobs.create!(title: "Developer", level_of_interest: 2, city: "Denver", category_id: category.id)
+      job_6 = company.jobs.create!(title: "QA Analyst", level_of_interest: 3, city: "New York City", category_id: category.id)
+      expect({3 => 1, 2 => 2, 1 => 3}).to eq(Job.jobs_by_interest)
+    end
+  end
 end
