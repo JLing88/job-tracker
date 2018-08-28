@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   resources :companies do
-    resources :contacts, only: [:new, :create, :edit, :destroy]
+    resources :contacts, only: [:new, :create, :edit, :destroy, :update]
   end
+
   resources :categories
+
   resources :jobs do
     resources :comments, only: [:new, :create]
   end
