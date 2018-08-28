@@ -10,26 +10,23 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(job_params)
-    if @job.save
-      flash[:success] = "You created #{@job.title} at #{@job.company.name}"
-      redirect_to job_path(@job)
-    else
-      render :new
-    end
+    job = Job.create(job_params)
+    redirect_to job_path(job)
+    flash[:notice] = "You created #{job.title} at #{job.company.name}"
   end
 
   def show
     @job = Job.find(params[:id])
+    @comment = Comment.new
   end
-
+  
   def edit
     @job = Job.find(params[:id])
   end
 
   def update
-    @job = Job.find(params[:id])
-    @job.update(job_params)
+    job = Job.find(params[:id])
+    job.update(job_params)
     redirect_to jobs_path
   end
 
@@ -40,7 +37,7 @@ class JobsController < ApplicationController
 
   private
 
-  def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
-  end
+    def job_params
+      params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
+    end
 end

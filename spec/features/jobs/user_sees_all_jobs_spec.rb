@@ -4,13 +4,18 @@ describe "User sees all jobs" do
   scenario "a user sees all the jobs for a specific company" do
     company = Company.create!(name: "ESPN")
     category = Category.create!(title: "Software")
-    company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
-    company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "New York City", category_id: category.id)
+    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver", category_id: category.id)
+    job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 70, city: "New York City", category_id: category.id)
 
     visit company_path(company)
 
-    expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
-    expect(page).to have_content("QA Analyst")
+    expect(page).to have_content(job_1.title)
+    expect(page).to have_content(job_1.company.name)
+    #expect(page).to have_content(job_1.city)
+    #expect(page).to have_content(job_1.level_of_interest)
+    expect(page).to have_content(job_2.title)
+    #expect(page).to have_content(job_2.company.name)
+    #expect(page).to have_content(job_2.city)
+    #expect(page).to have_content(job_2.level_of_interest)
   end
 end

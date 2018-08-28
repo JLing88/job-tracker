@@ -36,5 +36,6 @@ describe Job do
     end
 
     it {should belong_to(:category)}
+    it {should have_many(:comments)}
   end
 end
