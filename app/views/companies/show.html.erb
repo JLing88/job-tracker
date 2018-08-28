@@ -3,3 +3,8 @@ All Jobs for <strong><%= @company.name %></strong>
 <% @company.jobs.each do |job| %>
   <ul><%= job.title %></ul>
 <% end %>
+ <%= link_to "Create New Contact", new_company_contact_path(@company)%>
+
+ <% @company.contacts.each do |contact| %>
+  <ul> <%= contact.name %> <%= contact.job %> <%= contact.email %> </ul>
+ <% end %>
