@@ -1,0 +1,12 @@
+<h1>Create New Contact</h1>
+
+<%= form_for [@company, @contact] do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :job %>
+<%= f.text_field :job %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+
+<%= f.submit %>
+<% end %>

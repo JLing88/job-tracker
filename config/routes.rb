@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :companies do
-    resources :contacts, only: [:new, :create, :edit]
+    resources :contacts, only: [:new, :create, :edit, :destroy]
   end
   resources :categories
   resources :jobs
