@@ -26,6 +26,11 @@ class ContactsController < ApplicationController
     contact = Contact.update(contact_params)
     redirect_to company_path(company)
   end
+
+  def destroy
+    Contact.destroy(params[:id])
+    redirect_to company_path(params[:company_id])
+  end
 end
 
 
