@@ -15,6 +15,17 @@ class ContactsController < ApplicationController
       redirect_to company_path(params[:company_id])
     end
   end
+
+  def edit
+    @company = Company.find(params[:company_id])
+    @contact = Contact.find(params[:id])
+  end
+
+  def update
+    company = Company.find(params[:company_id])
+    contact = Contact.update(contact_params)
+    redirect_to company_path(company)
+  end
 end
 
 
