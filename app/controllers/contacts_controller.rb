@@ -5,9 +5,9 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @company = Company.find(params[:company_id])
-    @contact = @company.contacts.new(contact_params)
-    if @contact.save
+    company = Company.find(params[:company_id])
+    contact = company.contacts.new(contact_params)
+    if contact.save
       flash[:success] = "Contact Added"
       redirect_to company_path(params[:company_id])
     else
