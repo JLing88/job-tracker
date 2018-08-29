@@ -3,7 +3,7 @@ class JobsController < ApplicationController
     if params[:location]
       @jobs = Job.location_filter(params[:location])
     elsif params[:interest_level]
-      @jobs = Job.jobs_by_interest  
+      @jobs = Job.sort_by(params[:interest_level])
     else
       @jobs = Job.all
     end
