@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: #C7F0BD;
 }
 
 nav {
@@ -14,4 +14,8 @@ nav li {
 ul {
   display: flex;
   justify-content: space-around;
+}
+
+#navbar {
+  background: #B3CDD1;
 }
