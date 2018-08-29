@@ -24,7 +24,7 @@ Description: <%= @job.description %>
   </p>
 <% end %>
 
-<% @job.comments.each do |comment| %>
+<% @job.comments.order("created_at desc").each do |comment| %>
   <ul> 
     <li> <%= comment.created_at %> <%= comment.content %> </li>
   </ul> 

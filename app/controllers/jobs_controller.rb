@@ -2,6 +2,8 @@ class JobsController < ApplicationController
   def index
     if params[:location]
       @jobs = Job.location_filter(params[:location])
+    elsif params[:interest_level]
+      @jobs = Job.jobs_by_interest  
     else
       @jobs = Job.all
     end
