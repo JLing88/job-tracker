@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-08-28T21:28:48-06:00">2018-08-28T21:28:48-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-08-29T10:03:02-06:00">2018-08-29T10:03:02-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.95%</span></span>
+    (<span class="covered_percent"><span class="green">98.97%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.16
+         1.15
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>36</b> files in total.
-    <b>667</b> relevant lines. 
-    <span class="green"><b>660</b> lines covered</span> and
+    <b>681</b> relevant lines. 
+    <span class="green"><b>674</b> lines covered</span> and
     <span class="red"><b>7</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -112,12 +112,12 @@
       
       <tr>
         <td class="strong"><a href="#4190114983d5fc2e50c472dbb18244383bfe655a" class="src_link" title="app/controllers/jobs_controller.rb">app/controllers/jobs_controller.rb</a></td>
-        <td class="green strong">96.67 %</td>
+        <td class="green strong">100.0 %</td>
         <td>49</td>
         <td>30</td>
-        <td>29</td>
-        <td>1</td>
-        <td>2.2</td>
+        <td>30</td>
+        <td>0</td>
+        <td>2.3</td>
       </tr>
       
       <tr>
@@ -172,12 +172,12 @@
       
       <tr>
         <td class="strong"><a href="#105e8c85b6ada6cc8bac832711c80e5206f1eb91" class="src_link" title="app/models/job.rb">app/models/job.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>18</td>
-        <td>11</td>
-        <td>11</td>
-        <td>0</td>
-        <td>1.5</td>
+        <td class="green strong">93.33 %</td>
+        <td>26</td>
+        <td>15</td>
+        <td>14</td>
+        <td>1</td>
+        <td>1.3</td>
       </tr>
       
       <tr>
@@ -344,8 +344,8 @@
         <td class="strong"><a href="#b46f3a44f613dbbba7dbe8bc75dd3985696207e5" class="src_link" title="spec/features/jobs/user_sees_all_jobs_spec.rb">spec/features/jobs/user_sees_all_jobs_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>46</td>
-        <td>20</td>
-        <td>20</td>
+        <td>30</td>
+        <td>30</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -1593,11 +1593,11 @@
         <div class="source_table" id="4190114983d5fc2e50c472dbb18244383bfe655a">
   <div class="header">
     <h3>app/controllers/jobs_controller.rb</h3>
-    <h4><span class="green">96.67 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>30</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>30</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -1616,8 +1616,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="3">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="3">
+          <span class="hits">8</span>
           
           <code class="ruby">    if params[:location]</code>
         </li>
@@ -1628,16 +1628,16 @@
           <code class="ruby">      @jobs = Job.location_filter(params[:location])</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="5">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="5">
+          <span class="hits">7</span>
           
           <code class="ruby">    elsif params[:interest_level]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      @jobs = Job.jobs_by_interest  </code>
+          <code class="ruby">      @jobs = Job.sort_by(params[:interest_level])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -2145,11 +2145,11 @@
         <div class="source_table" id="105e8c85b6ada6cc8bac832711c80e5206f1eb91">
   <div class="header">
     <h3>app/models/job.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">93.33 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>15</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -2259,6 +2259,54 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.sort_by(sort_params)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    if sort_params == &#39;interest&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      order(&#39;level_of_interest desc&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">      order(&#39;city asc&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">end</code>
@@ -5584,8 +5632,8 @@
     <h3>spec/features/jobs/user_sees_all_jobs_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>20</b> relevant lines. 
-      <span class="green"><b>20</b> lines covered</span> and
+      <b>30</b> relevant lines. 
+      <span class="green"><b>30</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5773,94 +5821,94 @@
           <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # describe &quot;User sees jobs sorted by level of interest&quot; do</code>
+          <code class="ruby">  describe &quot;User sees jobs sorted by level of interest&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #   it &quot;should show all jobs sorted by level_of_interest&quot; do </code>
+          <code class="ruby">    it &quot;should show all jobs sorted by level_of_interest&quot; do </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     company = Company.create!(name: &quot;ESPN&quot;)</code>
+          <code class="ruby">      company = Company.create!(name: &quot;ESPN&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     category = Category.create(title: &#39;Software&#39;)</code>
+          <code class="ruby">      category = Category.create(title: &#39;Software&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     job_1 = company.jobs.create!(title: &quot;Developer&quot;, level_of_interest: 3, city: &quot;Denver&quot;, category_id: category.id)</code>
+          <code class="ruby">      job_1 = company.jobs.create!(title: &quot;Developer&quot;, level_of_interest: 3, city: &quot;Denver&quot;, category_id: category.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     job_2 = company.jobs.create!(title: &quot;QA Analyst&quot;, level_of_interest: 4, city: &quot;New York City&quot;, category_id: category.id)</code>
+          <code class="ruby">      job_2 = company.jobs.create!(title: &quot;QA Analyst&quot;, level_of_interest: 4, city: &quot;New York City&quot;, category_id: category.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     job_3 = company.jobs.create!(title: &quot;Manager&quot;, level_of_interest: 1, city: &quot;New York City&quot;, category_id: category.id)</code>
+          <code class="ruby">      job_3 = company.jobs.create!(title: &quot;Manager&quot;, level_of_interest: 1, city: &quot;New York City&quot;, category_id: category.id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">  # </code>
+          <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     visit jobs_path(interest_level:&quot;interest&quot;)</code>
+          <code class="ruby">      visit jobs_path(interest_level:&quot;interest&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # </code>
+          <code class="ruby">      save_and_open_page</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">  #     expect(page).to have_content(job_2.title)</code>
+          <code class="ruby">      </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #     expect(page).to have_content(job_1.title)</code>
+          <code class="ruby">      expect(page).to have_content(&quot;QA Analyst ESPN New York City 4EditDelete Developer ESPN Denver 3EditDelete Manager ESPN New York City 1EditDelete&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">  #     expect(page).to have_content(job_3.title)</code>
+          <code class="ruby">        #       </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">  # end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">

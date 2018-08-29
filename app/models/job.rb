@@ -15,4 +15,12 @@ class Job < ApplicationRecord
   def self.location_filter(location)
     where(city: location)
   end
+  
+  def self.sort_by(sort_params)
+    if sort_params == 'interest'
+      order('level_of_interest desc')
+    else
+      order('city asc')
+    end
+  end
 end
