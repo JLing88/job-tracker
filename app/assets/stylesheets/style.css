@@ -1,9 +1,10 @@
 body {
-  background-color: lightblue;
+  background-color: #C7F0BD;
 }
 
 nav {
   align-content: center;
+  font-size: 15px;
 }
 
 nav li {
@@ -14,4 +15,9 @@ nav li {
 ul {
   display: flex;
   justify-content: space-around;
+}
+
+#navbar {
+  background: #B3CDD1;
+  padding: 1%;
 }
