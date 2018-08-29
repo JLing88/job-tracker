@@ -4,6 +4,7 @@ body {
 
 nav {
   align-content: center;
+  font-size: 15px;
 }
 
 nav li {
@@ -18,4 +19,5 @@ ul {
 
 #navbar {
   background: #B3CDD1;
+  padding: 1%;
 }
