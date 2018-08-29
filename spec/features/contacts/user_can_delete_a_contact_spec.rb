@@ -16,7 +16,7 @@ describe 'user can delete a contact' do
         expect(page).to have_content(name)
         expect(page).to have_content(job)
         expect(page).to have_content(email)
-
+        
         click_link "Delete"
 
         expect(page).to_not have_content(name)

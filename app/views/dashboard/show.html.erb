@@ -1,0 +1,27 @@
+<h1>Job Tracker</h1>
+
+<div>
+  <h3>Jobs by Interest</h3>
+  <% @jobs_by_interest.each do |key, value| %>
+  <ul>
+    <li>  <%= key %> <%= value %> Job</li>
+  </ul>
+  <% end %>
+</div>
+
+<div>
+  <h3>Top Companies by Interest</h3>
+  <% @top_companies_by_interest.each do |company| %>
+  <ul>
+    <li><%= company.name %> <%= company.interest_avg.round(1) %> Stars </li>
+  </ul>
+  <% end %>
+</div>
+
+<div>
+  <% @job_count_by_location.each do |key, value|%>
+  <ul>
+    <li> <%= key %> Jobs <%= value %> jobs </li>
+  </ul>
+  <% end %>
+</div>

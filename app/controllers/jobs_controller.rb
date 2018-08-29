@@ -1,6 +1,10 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    if params[:location]
+      @jobs = Job.location_filter(params[:location])
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
@@ -19,7 +23,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @comment = Comment.new
   end
-  
+
   def edit
     @job = Job.find(params[:id])
   end
