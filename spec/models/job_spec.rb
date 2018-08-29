@@ -58,7 +58,7 @@ describe Job do
   end
 
   describe ".job_count_by_location" do
-    it ' ' do
+    it 'should show jobs counted by location' do
       company = Company.create!(name: "ESPN")
       category = Category.create!(title: "Software")
       job_1 = company.jobs.create!(title: "Developer", level_of_interest: 1, city: "Denver", category_id: category.id)

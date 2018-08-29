@@ -11,4 +11,8 @@ class Job < ApplicationRecord
   def self.job_count_by_location
     group(:city).count
   end
+
+  def self.location_filter(location)
+    where(city: location)
+  end
 end
