@@ -1,0 +1,17 @@
+body {
+  background-color: lightblue;
+}
+
+nav {
+  align-content: center;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+}
