@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :jobs do
     resources :comments, only: [:new, :create]
   end
-
+  
+  get 'companies/:id/jobs' => 'companies#job_index', as: :job_index
   get "dashboard", to: "dashboard#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
