@@ -8,3 +8,11 @@
   </ul>
   <% end %>
 </div>
+
+<div>
+  <% @job_count_by_location.each do |key, value|%>
+  <ul>
+    <li> <%= key %> Jobs <%= value %> jobs </li>
+  </ul>
+  <% end %>
+</div>

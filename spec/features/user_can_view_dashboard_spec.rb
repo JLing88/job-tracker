@@ -19,4 +19,22 @@ describe 'User visits the dashboard' do
     expect(page).to have_content("1 3 Job")
 
   end
+
+  it 'shows count of jobs by location' do
+    company = Company.create!(name: "ESPN")
+    category = Category.create!(title: "Software")
+    job_1 = company.jobs.create!(title: "Developer", level_of_interest: 1, city: "Denver", category_id: category.id)
+    job_2 = company.jobs.create!(title: "QA Analyst", level_of_interest: 1, city: "New York City", category_id: category.id)
+    job_3 = company.jobs.create!(title: "Developer", level_of_interest: 1, city: "LA", category_id: category.id)
+    job_4 = company.jobs.create!(title: "QA Analyst", level_of_interest: 2, city: "New York City", category_id: category.id)
+    job_5 = company.jobs.create!(title: "Developer", level_of_interest: 2, city: "Denver", category_id: category.id)
+    job_6 = company.jobs.create!(title: "QA Analyst", level_of_interest: 3, city: "New York City", category_id: category.id)
+
+    visit dashboard_path
+
+    expect(page).to have_content("New York City Jobs 3 jobs")
+    expect(page).to have_content("LA Jobs 1 jobs")
+    expect(page).to have_content("Denver Jobs 2 jobs")
+
+  end
 end
